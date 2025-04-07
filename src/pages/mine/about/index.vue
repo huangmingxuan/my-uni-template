@@ -23,8 +23,7 @@
         <view class="item-content">
           <text class="item-label">vue3-element-admin</text>
           <text class="item-desc">
-            基于 Vue3 + Vite5+ TypeScript5 + Element-Plus + Pinia
-            等主流技术栈构建的免费开源的中后台管理的前端模板
+            基于 Vue3 + Vite5+ TypeScript5 + Element-Plus + Pinia 等主流技术栈构建的免费开源的中后台管理的前端模板
           </text>
         </view>
       </view>
@@ -32,8 +31,8 @@
         <view class="item-content">
           <text class="item-label">vue-uniapp-template</text>
           <text class="item-desc">
-            基于 uni-app + Vue 3 + TypeScript 的项目，集成了 ESLint、Prettier、Stylelint、Husky 和
-            Commitlint 等工具，确保代码规范与质量。
+            基于 uni-app + Vue 3 + TypeScript 的项目，集成了 ESLint、Prettier、Stylelint、Husky 和 Commitlint
+            等工具，确保代码规范与质量。
           </text>
         </view>
       </view>
@@ -41,8 +40,8 @@
         <view class="item-content">
           <text class="item-label">youlai-boot</text>
           <text class="item-desc">
-            基于 JDK 17、Spring Boot 3、Spring Security 6、JWT、Redis、Mybatis-Plus、Knife4j、Vue
-            3、Element-Plus 构建的前后端分离单体权限管理系统
+            基于 JDK 17、Spring Boot 3、Spring Security 6、JWT、Redis、Mybatis-Plus、Knife4j、Vue 3、Element-Plus
+            构建的前后端分离单体权限管理系统
           </text>
         </view>
       </view>

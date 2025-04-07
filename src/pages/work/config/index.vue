@@ -4,17 +4,9 @@
     <wd-drop-menu close-on-click-modal class="mb-20rpx mr-20rpx ml-20rpx">
       <wd-drop-menu-item ref="dropMenu" title="筛选" icon="filter" icon-size="18px">
         <view>
-          <wd-input
-            v-model="queryParams.keywords"
-            label="关键字"
-            type="text"
-            clearable
-            placeholder="请输入关键字"
-          />
+          <wd-input v-model="queryParams.keywords" label="关键字" type="text" clearable placeholder="请输入关键字" />
           <view class="flex flex-row items-center mb-20rpx">
-            <wd-button class="mt-20rpx mb-20rpx" size="medium" @click="handleQuery()">
-              查询
-            </wd-button>
+            <wd-button class="mt-20rpx mb-20rpx" size="medium" @click="handleQuery()">查询</wd-button>
             <wd-button size="medium" type="info" @click="handleReset">重置</wd-button>
           </view>
         </view>
@@ -38,9 +30,7 @@
           </wd-cell-group>
 
           <template #footer>
-            <wd-button size="small" plain type="primary" @click="handleAction(item)">
-              操作
-            </wd-button>
+            <wd-button size="small" plain type="primary" @click="handleAction(item)">操作</wd-button>
           </template>
         </wd-card>
       </view>
@@ -93,9 +83,7 @@
         </wd-form>
         <view class="flex justify-around mt-20rpx">
           <wd-button @click="showEditPopup = false">取消</wd-button>
-          <wd-button type="primary" native-type="submit" :loading="loading" @click="submitForm">
-            确定
-          </wd-button>
+          <wd-button type="primary" native-type="submit" :loading="loading" @click="submitForm">确定</wd-button>
         </view>
       </view>
     </wd-popup>

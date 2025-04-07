@@ -2,9 +2,7 @@
   <view class="todo-container">
     <view class="page-header">
       <text class="page-title">待办事项</text>
-      <wd-button size="small" type="primary" icon="add" @click="showAddTodoPopup = true">
-        新建待办
-      </wd-button>
+      <wd-button size="small" type="primary" icon="add" @click="showAddTodoPopup = true">新建待办</wd-button>
     </view>
 
     <view class="filter-tabs">
@@ -18,29 +16,14 @@
     <TodoList :todos="filteredTodos" @update="handleUpdateTodo" @delete="handleDeleteTodo" />
 
     <!-- 新增待办弹窗 -->
-    <wd-popup
-      v-model="showAddTodoPopup"
-      position="bottom"
-      close-on-click-modal
-      :style="{ height: '65%' }"
-    >
+    <wd-popup v-model="showAddTodoPopup" position="bottom" close-on-click-modal :style="{ height: '65%' }">
       <view class="popup-header">
         <text class="popup-title">新建待办</text>
         <wd-icon name="close" @click="showAddTodoPopup = false" />
       </view>
       <view class="popup-form">
-        <wd-input
-          v-model="newTodo.title"
-          placeholder="请输入待办标题"
-          :rules="[{ required: true, message: '请输入标题' }]"
-        />
-        <wd-textarea
-          v-model="newTodo.description"
-          placeholder="请输入详细描述"
-          rows="3"
-          autosize
-          class="mt-20"
-        />
+        <wd-input v-model="newTodo.title" placeholder="请输入待办标题" :rules="[{ required: true, message: '请输入标题' }]" />
+        <wd-textarea v-model="newTodo.description" placeholder="请输入详细描述" rows="3" autosize class="mt-20" />
         <wd-cell title="截止日期" is-link @click="showDatePicker = true">
           <text v-if="newTodo.deadline">{{ formatDate(newTodo.deadline) }}</text>
           <text v-else class="text-placeholder">请选择</text>
@@ -53,15 +36,7 @@
           </wd-radio-group>
         </wd-cell>
         <view class="form-actions">
-          <wd-button
-            block
-            type="primary"
-            :loading="loading"
-            :disabled="!newTodo.title"
-            @click="handleAddTodo"
-          >
-            保存
-          </wd-button>
+          <wd-button block type="primary" :loading="loading" :disabled="!newTodo.title" @click="handleAddTodo">保存</wd-button>
         </view>
       </view>
     </wd-popup>

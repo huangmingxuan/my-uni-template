@@ -157,6 +157,9 @@ export interface UserInfo {
 
   /** 权限 */
   perms?: string[];
+
+  /** 性别 */
+  gender?: number;
 }
 
 /**

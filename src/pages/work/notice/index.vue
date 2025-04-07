@@ -4,17 +4,10 @@
     <wd-drop-menu close-on-click-modal class="mb-20rpx mr-20rpx ml-20rpx">
       <wd-drop-menu-item ref="dropMenu" title="筛选" icon="filter" icon-size="18px">
         <view>
-          <wd-input
-            v-model="queryParams.title"
-            label="关键字"
-            type="text"
-            placeholder="请输入关键字"
-          />
+          <wd-input v-model="queryParams.title" label="关键字" type="text" placeholder="请输入关键字" />
 
           <view class="flex flex-row items-center mb-20rpx">
-            <wd-button class="mt-20rpx mb-20rpx" size="medium" @click="handleQuery()">
-              查询
-            </wd-button>
+            <wd-button class="mt-20rpx mb-20rpx" size="medium" @click="handleQuery()">查询</wd-button>
             <wd-button size="medium" type="info" @click="handleReset">重置</wd-button>
           </view>
         </view>
@@ -54,9 +47,7 @@
                 <wd-text :text="formatDate(item.revokeTime)" size="small" />
               </view>
               <view class="text-right">
-                <wd-button size="small" plain type="primary" @click="handleAction(item)">
-                  操作
-                </wd-button>
+                <wd-button size="small" plain type="primary" @click="handleAction(item)">操作</wd-button>
               </view>
             </view>
           </template>
@@ -100,9 +91,7 @@ const handleReset = () => {
 };
 
 // 获取状态样式
-const getStatusType = (
-  status: number | undefined
-): "default" | "primary" | "danger" | "warning" | "success" => {
+const getStatusType = (status: number | undefined): "default" | "primary" | "danger" | "warning" | "success" => {
   if (!status) return "default";
   const statusMap: Record<number, "default" | "primary" | "danger" | "warning" | "success"> = {
     0: "primary",

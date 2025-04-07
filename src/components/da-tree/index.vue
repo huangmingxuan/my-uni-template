@@ -8,34 +8,18 @@
         :class="{ 'is-show': item.show }"
         :style="{ paddingLeft: item.level * indent + 'rpx' }"
       >
-        <view
-          v-if="item.showArrow && !filterValue"
-          class="da-tree-item__icon"
-          @click="handleExpandedChange(item)"
-        >
-          <view
-            v-if="loadLoading && item.loading"
-            :class="['da-tree-item__icon--arr', 'is-loading']"
-          />
-          <view
-            v-else
-            :class="['da-tree-item__icon--arr', 'is-expand', { 'is-right': !item.expand }]"
-          />
+        <view v-if="item.showArrow && !filterValue" class="da-tree-item__icon" @click="handleExpandedChange(item)">
+          <view v-if="loadLoading && item.loading" :class="['da-tree-item__icon--arr', 'is-loading']" />
+          <view v-else :class="['da-tree-item__icon--arr', 'is-expand', { 'is-right': !item.expand }]" />
         </view>
         <view v-else class="da-tree-item__icon" />
         <view
           v-if="showCheckbox"
           class="da-tree-item__checkbox"
-          :class="[
-            `da-tree-item__checkbox--${checkboxPlacement}`,
-            { 'is--disabled': item.disabled },
-          ]"
+          :class="[`da-tree-item__checkbox--${checkboxPlacement}`, { 'is--disabled': item.disabled }]"
           @click="handleCheckChange(item)"
         >
-          <view
-            v-if="item.checkedStatus === isCheckedStatus"
-            class="da-tree-item__checkbox--icon da-tree-checkbox-checked"
-          />
+          <view v-if="item.checkedStatus === isCheckedStatus" class="da-tree-item__checkbox--icon da-tree-checkbox-checked" />
           <view
             v-else-if="item.checkedStatus === halfCheckedStatus"
             class="da-tree-item__checkbox--icon da-tree-checkbox-indeterminate"
@@ -45,27 +29,17 @@
         <view
           v-if="!showCheckbox && showRadioIcon"
           class="da-tree-item__checkbox"
-          :class="[
-            `da-tree-item__checkbox--${checkboxPlacement}`,
-            { 'is--disabled': item.disabled },
-          ]"
+          :class="[`da-tree-item__checkbox--${checkboxPlacement}`, { 'is--disabled': item.disabled }]"
           @click="handleRadioChange(item)"
         >
-          <view
-            v-if="item.checkedStatus === isCheckedStatus"
-            class="da-tree-item__checkbox--icon da-tree-radio-checked"
-          />
+          <view v-if="item.checkedStatus === isCheckedStatus" class="da-tree-item__checkbox--icon da-tree-radio-checked" />
           <view
             v-else-if="item.checkedStatus === halfCheckedStatus"
             class="da-tree-item__checkbox--icon da-tree-radio-indeterminate"
           />
           <view v-else class="da-tree-item__checkbox--icon da-tree-radio-outline" />
         </view>
-        <view
-          class="da-tree-item__label"
-          :class="'da-tree-item__label--' + item.checkedStatus"
-          @click="handleLabelClick(item)"
-        >
+        <view class="da-tree-item__label" :class="'da-tree-item__label--' + item.checkedStatus" @click="handleLabelClick(item)">
           {{ item.label }}
           <text v-if="item.append" class="da-tree-item__label--append">{{ item.append }}</text>
         </view>
@@ -310,9 +284,7 @@ export default defineComponent({
       } else {
         checkedKeyList = checkedKeys.value || null;
         expandedKeyList =
-          props.expandChecked && checkedKeys.value
-            ? [checkedKeys.value, ...(expandedKeys.value || [])]
-            : expandedKeys.value;
+          props.expandChecked && checkedKeys.value ? [checkedKeys.value, ...(expandedKeys.value || [])] : expandedKeys.value;
       }
 
       handleCheckState(list, checkedKeyList, true);
@@ -389,9 +361,7 @@ export default defineComponent({
         childrenKeys.forEach((k) => {
           const childrenItem = unref(datamap)[k];
           childrenItem.checkedStatus =
-            !props.checkedDisabled && childrenItem.disabled
-              ? childrenItem.checkedStatus
-              : item.checkedStatus;
+            !props.checkedDisabled && childrenItem.disabled ? childrenItem.checkedStatus : item.checkedStatus;
         });
 
         // 父类
@@ -523,9 +493,7 @@ export default defineComponent({
 
         childrenKeys.forEach((k) => {
           const childrenItem = unref(datamap)[k];
-          childrenItem.checkedStatus = childrenItem.disabled
-            ? childrenItem.checkedStatus
-            : item.checkedStatus;
+          childrenItem.checkedStatus = childrenItem.disabled ? childrenItem.checkedStatus : item.checkedStatus;
 
           if (props.expandChecked) {
             childrenItem.show = true;
@@ -534,9 +502,7 @@ export default defineComponent({
         });
       } else {
         if (props.expandChecked) {
-          logError(
-            `多选时，当 checkStrictly 为 true 时，不支持选择自动展开子节点属性(expandChecked)`
-          );
+          logError(`多选时，当 checkStrictly 为 true 时，不支持选择自动展开子节点属性(expandChecked)`);
         }
       }
 
@@ -783,8 +749,7 @@ export default defineComponent({
     /**
      * 返回已选的 key
      */
-    const getCheckedKeys = () =>
-      getAllNodeKeys(datalist.value, "checkedStatus", isCheckedStatus, props.packDisabledkey);
+    const getCheckedKeys = () => getAllNodeKeys(datalist.value, "checkedStatus", isCheckedStatus, props.packDisabledkey);
     /**
      * 根据key设置已选
      * @param keys 单选时为数字或者字符串，多选时为数组
@@ -851,13 +816,11 @@ export default defineComponent({
     /**
      * 返回半选的 key
      */
-    const getHalfCheckedKeys = () =>
-      getAllNodeKeys(datalist.value, "checkedStatus", halfCheckedStatus, props.packDisabledkey);
+    const getHalfCheckedKeys = () => getAllNodeKeys(datalist.value, "checkedStatus", halfCheckedStatus, props.packDisabledkey);
     /**
      * 返回未选的 key
      */
-    const getUncheckedKeys = () =>
-      getAllNodeKeys(datalist.value, "checkedStatus", unCheckedStatus, props.packDisabledkey);
+    const getUncheckedKeys = () => getAllNodeKeys(datalist.value, "checkedStatus", unCheckedStatus, props.packDisabledkey);
     /**
      * 返回已展开的 key
      */
@@ -919,18 +882,15 @@ export default defineComponent({
     /**
      * 返回已选的节点
      */
-    const getCheckedNodes = () =>
-      getAllNodes(datalist.value, "checkedStatus", isCheckedStatus, props.packDisabledkey);
+    const getCheckedNodes = () => getAllNodes(datalist.value, "checkedStatus", isCheckedStatus, props.packDisabledkey);
     /**
      * 返回半选的节点
      */
-    const getHalfCheckedNodes = () =>
-      getAllNodes(datalist.value, "checkedStatus", halfCheckedStatus, props.packDisabledkey);
+    const getHalfCheckedNodes = () => getAllNodes(datalist.value, "checkedStatus", halfCheckedStatus, props.packDisabledkey);
     /**
      * 返回未选的节点
      */
-    const getUncheckedNodes = () =>
-      getAllNodes(datalist.value, "checkedStatus", unCheckedStatus, props.packDisabledkey);
+    const getUncheckedNodes = () => getAllNodes(datalist.value, "checkedStatus", unCheckedStatus, props.packDisabledkey);
     /**
      * 返回已展开的节点
      */

@@ -1,32 +1,17 @@
 <template>
   <view>
     <view class="p-l-8 p-b-20">
-      <DaTree
-        ref="DaTreeRef"
-        :data="menuPermOptions"
-        :defaultExpandAll="true"
-        :showCheckbox="true"
-      />
+      <DaTree ref="DaTreeRef" :data="menuPermOptions" :defaultExpandAll="true" :showCheckbox="true" />
     </view>
     <wd-fab v-model:active="showFab" type="primary" position="right-top" direction="bottom">
-      <wd-button custom-class="custom-button" type="primary" @click="doCheckedTree(rootKeys, true)">
-        全 选
-      </wd-button>
-      <wd-button custom-class="custom-button" type="error" @click="doCheckedTree(rootKeys, false)">
-        全不选
-      </wd-button>
-      <wd-button custom-class="custom-button" type="success" @click="doExpandTree('all', true)">
-        全展开
-      </wd-button>
-      <wd-button custom-class="custom-button" type="warning" @click="doExpandTree('all', false)">
-        全收起
-      </wd-button>
+      <wd-button custom-class="custom-button" type="primary" @click="doCheckedTree(rootKeys, true)">全 选</wd-button>
+      <wd-button custom-class="custom-button" type="error" @click="doCheckedTree(rootKeys, false)">全不选</wd-button>
+      <wd-button custom-class="custom-button" type="success" @click="doExpandTree('all', true)">全展开</wd-button>
+      <wd-button custom-class="custom-button" type="warning" @click="doExpandTree('all', false)">全收起</wd-button>
     </wd-fab>
     <!-- 底部按钮 -->
     <view class="footer-buttons" style="">
-      <wd-button size="medium" type="primary" block @click="handleAssignPermSubmit">
-        确 定
-      </wd-button>
+      <wd-button size="medium" type="primary" block @click="handleAssignPermSubmit">确 定</wd-button>
     </view>
   </view>
 </template>

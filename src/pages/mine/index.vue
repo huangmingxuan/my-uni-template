@@ -5,11 +5,7 @@
       <view class="blur-bg"></view>
       <view class="user-info">
         <view class="avatar-container" @click="navigateToProfile">
-          <image
-            class="avatar"
-            :src="isLogin ? userInfo!.avatar : defaultAvatar"
-            mode="aspectFill"
-          />
+          <image class="avatar" :src="isLogin ? userInfo!.avatar : defaultAvatar" mode="aspectFill" />
           <view v-if="isLogin" class="avatar-edit">
             <wd-icon name="edit-pen" size="16" color="#fff" />
           </view>
@@ -21,15 +17,10 @@
           </block>
           <block v-else>
             <view class="login-prompt">立即登录获取更多功能</view>
-            <wd-button class="login-btn" size="small" type="primary" @click="navigateToLoginPage">
-              登录/注册
-            </wd-button>
+            <wd-button class="login-btn" size="small" type="primary" @click="navigateToLoginPage">登录/注册</wd-button>
           </block>
         </view>
         <view class="actions">
-          <view class="action-btn" @click="navigateToSettings">
-            <wd-icon name="setting1" size="22" color="#333" />
-          </view>
           <view v-if="isLogin" class="action-btn" @click="navigateToSection('messages')">
             <wd-icon name="message" size="22" color="#333" />
             <view v-if="true" class="badge">2</view>
@@ -130,83 +121,11 @@
           </view>
           <view class="tool-label">待办事项</view>
         </view>
-        <view class="tool-item" @click="navigateToFAQ">
-          <view class="tool-icon">
-            <wd-icon name="help-circle" size="24" :color="themeStore.primaryColor" />
-          </view>
-          <view class="tool-label">常见问题</view>
-        </view>
         <view class="tool-item" @click="handleQuestionFeedback">
           <view class="tool-icon">
             <wd-icon name="check-circle" size="24" :color="themeStore.primaryColor" />
           </view>
           <view class="tool-label">问题反馈</view>
-        </view>
-        <view class="tool-item" @click="navigateToAbout">
-          <view class="tool-icon">
-            <wd-icon name="info-circle" size="24" :color="themeStore.primaryColor" />
-          </view>
-          <view class="tool-label">关于我们</view>
-        </view>
-        <view class="tool-item" @click="navigateToSettings">
-          <view class="tool-icon">
-            <wd-icon name="setting1" size="24" :color="themeStore.primaryColor" />
-          </view>
-          <view class="tool-label">设置</view>
-        </view>
-        <view class="tool-item" @click="navigateToSection('wallet')">
-          <view class="tool-icon">
-            <wd-icon name="wallet" size="24" :color="themeStore.primaryColor" />
-          </view>
-          <view class="tool-label">我的钱包</view>
-        </view>
-      </view>
-    </view>
-
-    <!-- 推荐服务 -->
-    <view class="card-container">
-      <view class="card-header">
-        <view class="card-title">
-          <wd-icon name="star" size="18" :color="themeStore.primaryColor" />
-          <text>推荐服务</text>
-        </view>
-      </view>
-      <view class="services-list">
-        <view class="service-item" @click="navigateToSection('services', 'vip')">
-          <view class="service-left">
-            <view class="service-icon vip-icon">
-              <wd-icon name="crown" size="22" color="#FFD700" />
-            </view>
-            <view class="service-info">
-              <view class="service-name">会员中心</view>
-              <view class="service-desc">解锁更多特权</view>
-            </view>
-          </view>
-          <wd-icon name="arrow-right" size="14" color="#999" />
-        </view>
-        <view class="service-item" @click="navigateToSection('services', 'coupon')">
-          <view class="service-left">
-            <view class="service-icon">
-              <wd-icon name="ticket" size="22" :color="themeStore.primaryColor" />
-            </view>
-            <view class="service-info">
-              <view class="service-name">优惠券</view>
-              <view class="service-desc">查看我的优惠券</view>
-            </view>
-          </view>
-          <wd-icon name="arrow-right" size="14" color="#999" />
-        </view>
-        <view class="service-item" @click="navigateToSection('services', 'invite')">
-          <view class="service-left">
-            <view class="service-icon">
-              <wd-icon name="share" size="22" :color="themeStore.primaryColor" />
-            </view>
-            <view class="service-info">
-              <view class="service-name">邀请有礼</view>
-              <view class="service-desc">邀请好友得奖励</view>
-            </view>
-          </view>
-          <wd-icon name="arrow-right" size="14" color="#999" />
         </view>
       </view>
     </view>
@@ -264,21 +183,6 @@ const navigateToProfile = () => {
     return;
   }
   uni.navigateTo({ url: "/pages/mine/profile/index" });
-};
-
-// 常见问题
-const navigateToFAQ = () => {
-  uni.navigateTo({ url: "/pages/mine/faq/index" });
-};
-
-// 关于我们
-const navigateToAbout = () => {
-  uni.navigateTo({ url: "/pages/mine/about/index" });
-};
-
-// 设置
-const navigateToSettings = () => {
-  uni.navigateTo({ url: "/pages/mine/settings/index" });
 };
 
 // 问题反馈

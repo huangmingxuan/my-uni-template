@@ -36,9 +36,7 @@
       <view class="subtitle">预览效果</view>
       <view class="preview-container">
         <view class="preview-item">
-          <view class="preview-button" :style="{ backgroundColor: themeStore.primaryColor }">
-            按钮
-          </view>
+          <view class="preview-button" :style="{ backgroundColor: themeStore.primaryColor }">按钮</view>
         </view>
         <view class="preview-item">
           <view class="preview-text" :style="{ color: themeStore.primaryColor }">文本颜色</view>

@@ -39,11 +39,7 @@
             uniapp的用法与微信官方文档一样，具体参见：
           </text>
           <!-- #ifdef H5 -->
-          <a
-            href="https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/basic.html"
-          >
-            微信官方文档-分包
-          </a>
+          <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/basic.html">微信官方文档-分包</a>
           <!-- #endif -->
           <!-- #ifdef MP-WEIXIN -->
           <text :user-select="true" :selectable="true">
@@ -52,9 +48,7 @@
           <!-- #endif -->
         </view>
         <view class="mt-15rpx">
-          <text>
-            以下是一个简单示例。以下示例中创建了两个分包，分包a中包含两个页面，分包b中包含一个页面。
-          </text>
+          <text>以下是一个简单示例。以下示例中创建了两个分包，分包a中包含两个页面，分包b中包含一个页面。</text>
           <text class="mt-15rpx">
             请注意，如果想把分包页面中使用的组件打包到分包中，则需要将组件放入对应的分包目录下，否则组件会被打包到主包中。
           </text>

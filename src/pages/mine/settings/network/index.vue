@@ -97,9 +97,7 @@ const getNetworkType = async () => {
 
     // H5环境
     // #ifdef H5
-    signalStrength.value = (navigator as any).connection
-      ? `${(navigator as any).connection.effectiveType || "未知"}`
-      : "不支持";
+    signalStrength.value = (navigator as any).connection ? `${(navigator as any).connection.effectiveType || "未知"}` : "不支持";
     // #endif
   } catch {
     networkType.value = "获取失败";

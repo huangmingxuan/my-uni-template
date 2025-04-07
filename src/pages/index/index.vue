@@ -14,11 +14,7 @@
     </wd-grid>
 
     <!-- 通知公告 -->
-    <wd-notice-bar
-      text="vue-uniapp-template 是一个基于 Vue3 + UniApp 的前端模板项目，提供了一套完整的前端解决方案，包括登录、权限、字典、接口请求、状态管理、页面布局、组件封装等功能。"
-      color="#34D19D"
-      type="info"
-    >
+    <wd-notice-bar text="这是一个公告用于显示一些通知" color="#34D19D" type="info">
       <template #prefix>
         <wd-tag color="#FAA21E" bg-color="#FAA21E" plain custom-style="margin-right:10rpx">通知公告</wd-tag>
       </template>
@@ -114,7 +110,7 @@ const chartOpts = ref({
 // 日期范围
 const recentDaysRange = ref(7);
 
-const swiperList = ref(["https://www.youlai.tech/storage/blog/banner9.png"]);
+const swiperList = ref([""]);
 
 // 快捷导航列表
 const navList = reactive([

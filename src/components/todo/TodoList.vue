@@ -1,13 +1,7 @@
 <template>
   <view class="todo-list">
     <wd-empty v-if="todos.length === 0" description="暂无待办事项" />
-    <TodoItem
-      v-for="todo in todos"
-      :key="todo.id"
-      :todo="todo"
-      @update="handleUpdate"
-      @delete="handleDelete"
-    />
+    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" @update="handleUpdate" @delete="handleDelete" />
   </view>
 </template>
 

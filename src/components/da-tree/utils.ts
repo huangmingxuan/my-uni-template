@@ -66,12 +66,7 @@ export function getAllNodes(list: any[], type: string, value: any, packDisabledk
  * @param packDisabledkey 是否包含禁用节点
  * @author crlang(https://crlang.com)
  */
-export function getAllNodeKeys(
-  list: any[],
-  type: string,
-  value: any,
-  packDisabledkey = true
-): string[] | null {
+export function getAllNodeKeys(list: any[], type: string, value: any, packDisabledkey = true): string[] | null {
   if (!list || list.length === 0) {
     return null;
   }

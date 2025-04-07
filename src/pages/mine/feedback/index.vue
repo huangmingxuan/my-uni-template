@@ -19,24 +19,13 @@
 
     <!-- 问题描述 -->
     <wd-cell-group title="问题描述" border>
-      <wd-textarea
-        v-model="description"
-        placeholder="请详细描述您遇到的问题或建议..."
-        :maxlength="500"
-        show-count
-        :rows="5"
-      />
+      <wd-textarea v-model="description" placeholder="请详细描述您遇到的问题或建议..." :maxlength="500" show-count :rows="5" />
     </wd-cell-group>
 
     <!-- 图片上传 -->
     <wd-cell-group title="相关截图（选填）" border>
       <view class="upload-box">
-        <wd-upload
-          v-model="fileList"
-          :max-count="3"
-          :before-read="beforeRead"
-          @delete="handleDelete"
-        />
+        <wd-upload v-model="fileList" :max-count="3" :before-read="beforeRead" @delete="handleDelete" />
       </view>
     </wd-cell-group>
 
@@ -47,9 +36,7 @@
 
     <!-- 提交按钮 -->
     <view class="submit-btn">
-      <wd-button type="primary" block :loading="submitting" @click="handleSubmit">
-        提交反馈
-      </wd-button>
+      <wd-button type="primary" block :loading="submitting" @click="handleSubmit">提交反馈</wd-button>
     </view>
 
     <wd-toast />

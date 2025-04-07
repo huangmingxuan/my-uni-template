@@ -22,11 +22,7 @@
         />
         <wd-drop-menu-item ref="filterDropMenu" title="筛选" icon="filter">
           <view>
-            <wd-input
-              v-model="queryParams.keywords"
-              label="关键字"
-              placeholder="用户名/昵称/手机号"
-            />
+            <wd-input v-model="queryParams.keywords" label="关键字" placeholder="用户名/昵称/手机号" />
 
             <cu-date-query v-model="queryParams.createTime" label="创建时间" />
 
@@ -50,11 +46,7 @@
                 <view class="font-bold">
                   {{ item.nickname }}
                   <wd-icon v-if="item.gender == 1" name="gender-male" class="color-#4D80F0" />
-                  <wd-icon
-                    v-else-if="item.gender == 2"
-                    name="gender-female"
-                    class="color-#FA4350"
-                  />
+                  <wd-icon v-else-if="item.gender == 2" name="gender-female" class="color-#FA4350" />
                 </view>
                 <view class="mt-1"><wd-text :text="item.deptName" size="12px" /></view>
               </view>
@@ -80,23 +72,11 @@
               <wd-text :text="item.createTime" size="small" />
             </view>
             <view class="text-right">
-              <wd-button
-                type="primary"
-                size="small"
-                plain
-                :v-has-perm="'sys:user:edit'"
-                @click="handleOpenDialog(item.id)"
-              >
+              <wd-button type="primary" size="small" plain :v-has-perm="'sys:user:edit'" @click="handleOpenDialog(item.id)">
                 编辑
               </wd-button>
               &nbsp;
-              <wd-button
-                type="error"
-                size="small"
-                plain
-                :v-has-perm="'sys:user:delete'"
-                @click="handleDelete(item.id)"
-              >
+              <wd-button type="error" size="small" plain :v-has-perm="'sys:user:delete'" @click="handleDelete(item.id)">
                 删除
               </wd-button>
             </view>
@@ -114,18 +94,8 @@
         <wd-cell-group border>
           <wd-input v-model="formData.username" label="用户名" :readonly="!formData.id" required />
           <wd-input v-model="formData.nickname" label="昵称" required />
-          <wd-select-picker
-            v-model="formData.roleIds"
-            label="角色"
-            :columns="roleOptions"
-            required
-          />
-          <CuPicker
-            v-model="formData.deptId"
-            v-model:data="deptOptions"
-            label="部门"
-            :required="true"
-          />
+          <wd-select-picker v-model="formData.roleIds" label="角色" :columns="roleOptions" required />
+          <CuPicker v-model="formData.deptId" v-model:data="deptOptions" label="部门" :required="true" />
           <wd-input v-model="formData.mobile" label="手机号" prop="mobile" />
           <wd-input v-model="formData.email" label="邮箱" prop="email" />
           <wd-cell title="状态">

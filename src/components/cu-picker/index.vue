@@ -80,9 +80,7 @@ const findTreePath = (value: number | string): number[] | string[] => {
  * @param treeData 树形数据
  * @returns Picker 所需的 columns 格式
  */
-const transformTreeToColumns = (
-  treeData: OptionType[]
-): Array<Array<{ label: string; value: string | number }>> => {
+const transformTreeToColumns = (treeData: OptionType[]): Array<Array<{ label: string; value: string | number }>> => {
   const columns: Array<Array<{ label: string; value: string | number }>> = [];
 
   for (let depth = 0; depth <= selectedValues.value.length; depth++) {
@@ -134,11 +132,7 @@ function handleColumnChange(
 /**
  * 动态更新所有后续列的数据
  */
-function updatePickerColumns(
-  pickerView: PickerViewInstance,
-  parentId: string | number,
-  columnIndex: number
-) {
+function updatePickerColumns(pickerView: PickerViewInstance, parentId: string | number, columnIndex: number) {
   const nextColumnIndex = columnIndex + 1;
   const children = findChildren(parentId, props.data);
 
@@ -151,10 +145,7 @@ function updatePickerColumns(
 /**
  * 根据节点value查找其子节点数据
  */
-function findChildren(
-  parentId: string | number,
-  list: Record<string, any>[]
-): Record<string, any>[] {
+function findChildren(parentId: string | number, list: Record<string, any>[]): Record<string, any>[] {
   for (const item of list) {
     if (item.value === parentId && item.children) {
       return item.children;

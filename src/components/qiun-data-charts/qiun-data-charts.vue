@@ -474,11 +474,7 @@ export default {
     optsProps: {
       handler(val, oldval) {
         if (typeof val === "object") {
-          if (
-            JSON.stringify(val) !== JSON.stringify(oldval) &&
-            this.echarts === false &&
-            this.optsWatch == true
-          ) {
+          if (JSON.stringify(val) !== JSON.stringify(oldval) && this.echarts === false && this.optsWatch == true) {
             this.checkData(this.drawData);
           }
         } else {
@@ -562,11 +558,7 @@ export default {
     }
     // #ifdef MP-WEIXIN
     this.inWx = true;
-    if (
-      this.canvas2d === false ||
-      systemInfo.platform === "windows" ||
-      systemInfo.platform === "mac"
-    ) {
+    if (this.canvas2d === false || systemInfo.platform === "windows" || systemInfo.platform === "mac") {
       this.type2d = false;
     } else {
       this.type2d = true;
@@ -918,11 +910,7 @@ export default {
                         const ctx = canvas.getContext("2d");
                         cfu.option[cid].context = ctx;
                         cfu.option[cid].rotateLock = cfu.option[cid].rotate;
-                        if (
-                          cfu.instance[cid] &&
-                          cfu.option[cid] &&
-                          cfu.option[cid].update === true
-                        ) {
+                        if (cfu.instance[cid] && cfu.option[cid] && cfu.option[cid].update === true) {
                           this._updataUChart(cid);
                         } else {
                           canvas.width = data.width * this.pixel;
@@ -937,8 +925,7 @@ export default {
                         }
                       } else {
                         this.showchart = false;
-                        this.mixinDatacomErrorMessage =
-                          "参数错误：开启2d模式后，未获取到dom节点，canvas-id:" + cid;
+                        this.mixinDatacomErrorMessage = "参数错误：开启2d模式后，未获取到dom节点，canvas-id:" + cid;
                       }
                     });
                 } else {
@@ -1084,10 +1071,7 @@ export default {
           offset: offset,
           textList: tc.textList,
           formatter: (item, category, index, opts) => {
-            if (
-              typeof cfu.option[cid].tooltipFormat === "string" &&
-              cfu.formatter[cfu.option[cid].tooltipFormat]
-            ) {
+            if (typeof cfu.option[cid].tooltipFormat === "string" && cfu.formatter[cfu.option[cid].tooltipFormat]) {
               return cfu.formatter[cfu.option[cid].tooltipFormat](item, category, index, opts);
             } else {
               return this._tooltipDefault(item, category, index, opts);
@@ -1097,10 +1081,7 @@ export default {
       } else {
         cfu.instance[cid].showToolTip(e, {
           formatter: (item, category, index, opts) => {
-            if (
-              typeof cfu.option[cid].tooltipFormat === "string" &&
-              cfu.formatter[cfu.option[cid].tooltipFormat]
-            ) {
+            if (typeof cfu.option[cid].tooltipFormat === "string" && cfu.formatter[cfu.option[cid].tooltipFormat]) {
               return cfu.formatter[cfu.option[cid].tooltipFormat](item, category, index, opts);
             } else {
               return this._tooltipDefault(item, category, index, opts);
@@ -1222,11 +1203,7 @@ export default {
       if (cfu.option[cid].enableScroll === true && e.changedTouches.length == 1) {
         cfu.instance[cid].scroll(e);
       }
-      if (
-        this.ontap === true &&
-        cfu.option[cid].enableScroll === false &&
-        this.onmovetip === true
-      ) {
+      if (this.ontap === true && cfu.option[cid].enableScroll === false && this.onmovetip === true) {
         this._tap(e, true);
       }
       if (
@@ -1261,11 +1238,7 @@ export default {
           opts: cfu.instance[cid].opts,
         },
       });
-      if (
-        this.ontap === true &&
-        cfu.option[cid].enableScroll === false &&
-        this.onmovetip === true
-      ) {
+      if (this.ontap === true && cfu.option[cid].enableScroll === false && this.onmovetip === true) {
         this._tap(e, true);
       }
     },

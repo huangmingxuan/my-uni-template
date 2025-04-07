@@ -4,12 +4,7 @@
     <wd-drop-menu>
       <wd-drop-menu-item ref="filterDropMenu" icon="filter" icon-size="18px" title="筛选">
         <view>
-          <wd-input
-            v-model="queryParams.keywords"
-            label="关键字"
-            type="text"
-            placeholder="请输入关键字"
-          />
+          <wd-input v-model="queryParams.keywords" label="关键字" type="text" placeholder="请输入关键字" />
           <view class="flex-between py-2">
             <wd-button custom-class="w-20per" type="info" @click="handleResetQuery">重置</wd-button>
             <wd-button custom-class="w-70per" @click="handleQuery">确定</wd-button>

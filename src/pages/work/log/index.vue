@@ -4,12 +4,7 @@
     <wd-drop-menu close-on-click-modal class="mb-24rpx">
       <wd-drop-menu-item ref="filterDropMenu" title="筛选" icon="filter" icon-size="18px">
         <view>
-          <wd-input
-            v-model="queryParams.keywords"
-            label="关键字"
-            type="text"
-            placeholder="请输入关键字"
-          />
+          <wd-input v-model="queryParams.keywords" label="关键字" type="text" placeholder="请输入关键字" />
 
           <cu-date-query v-model="queryParams.createTime" :label="'日期选择'" />
 
@@ -41,9 +36,7 @@
             <wd-text :text="item.createTime" size="small" />
           </view>
           <view class="text-right">
-            <wd-button type="primary" size="small" plain @click="handleViewDetail(item)">
-              查看详情
-            </wd-button>
+            <wd-button type="primary" size="small" plain @click="handleViewDetail(item)">查看详情</wd-button>
           </view>
         </view>
       </template>

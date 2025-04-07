@@ -15,12 +15,7 @@
       </view>
     </view>
     <view class="todo-actions">
-      <wd-icon
-        name="delete-filling"
-        color="#F56C6C"
-        size="18"
-        @tap.stop="$emit('delete', todo.id)"
-      />
+      <wd-icon name="delete-filling" color="#F56C6C" size="18" @tap.stop="$emit('delete', todo.id)" />
     </view>
   </view>
 </template>

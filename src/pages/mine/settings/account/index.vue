@@ -9,12 +9,7 @@
           is-link
           @click="handleOpenDialog(DialogType.PASSWORD)"
         />
-        <wd-cell
-          title="绑定手机"
-          :value="userProfile?.mobile"
-          is-link
-          @click="handleOpenDialog(DialogType.MOBILE)"
-        />
+        <wd-cell title="绑定手机" :value="userProfile?.mobile" is-link @click="handleOpenDialog(DialogType.MOBILE)" />
         <wd-cell
           title="绑定邮箱"
           :value="userProfile?.email ? userProfile.email : '未绑定邮箱'"
@@ -94,11 +89,7 @@
             :rules="rules.code"
           >
             <template #suffix>
-              <wd-button
-                plain
-                :disabled="mobileCountdown > 0"
-                @click="handleSendVerificationCode('MOBILE')"
-              >
+              <wd-button plain :disabled="mobileCountdown > 0" @click="handleSendVerificationCode('MOBILE')">
                 {{ mobileCountdown > 0 ? `${mobileCountdown}s后重新发送` : "发送验证码" }}
               </wd-button>
             </template>
@@ -134,11 +125,7 @@
             :rules="rules.code"
           >
             <template #suffix>
-              <wd-button
-                plain
-                :disabled="emailCountdown > 0"
-                @click="handleSendVerificationCode('EMAIL')"
-              >
+              <wd-button plain :disabled="emailCountdown > 0" @click="handleSendVerificationCode('EMAIL')">
                 {{ emailCountdown > 0 ? `${emailCountdown}s后重新发送` : "发送验证码" }}
               </wd-button>
             </template>
@@ -152,12 +139,7 @@
   </view>
 </template>
 <script setup lang="ts">
-import UserAPI, {
-  PasswordChangeForm,
-  MobileBindingForm,
-  EmailBindingForm,
-  UserProfileVO,
-} from "@/api/system/user";
+import UserAPI, { PasswordChangeForm, MobileBindingForm, EmailBindingForm, UserProfileVO } from "@/api/system/user";
 
 const validatorConfirmPassword = (value: string) => {
   if (!value) {

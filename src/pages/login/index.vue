@@ -6,8 +6,8 @@
     <!-- Logo和标题区域 -->
     <view class="header">
       <image src="/static/logo.png" class="logo" />
-      <text class="title">有来开源</text>
-      <text class="subtitle">专注于构建高效开发的应用解决方案</text>
+      <text class="title">{{ TITLE }}</text>
+      <!-- <text class="subtitle"></text> -->
     </view>
 
     <!-- 登录表单区域 -->
@@ -44,14 +44,7 @@
           <view class="divider"></view>
 
           <!-- 登录按钮 -->
-          <button
-            class="login-btn"
-            :disabled="loading"
-            :style="loading ? 'opacity: 0.7;' : ''"
-            @click="handleLogin"
-          >
-            登录
-          </button>
+          <button class="login-btn" :disabled="loading" :style="loading ? 'opacity: 0.7;' : ''" @click="handleLogin">登录</button>
         </wd-form>
 
         <!-- 微信登录 -->
@@ -72,9 +65,9 @@
         <!-- 底部协议 -->
         <view class="agreement">
           <text class="text">登录即同意</text>
-          <text class="link" @click="navigateToUserAgreement">《用户协议》</text>
+          <text class="link">《用户协议》</text>
           <text class="text">和</text>
-          <text class="link" @click="navigateToPrivacy">《隐私政策》</text>
+          <text class="link">《隐私政策》</text>
         </view>
       </view>
     </view>
@@ -94,6 +87,8 @@ const loginFormRef = ref();
 const toast = useToast();
 const loading = ref(false);
 const userStore = useUserStore();
+
+let TITLE = import.meta.env.VITE_APP_BASE_TITLE;
 
 // 登录表单数据
 const loginFormData = ref<LoginFormData>({
@@ -194,20 +189,6 @@ const handleWechatLogin = async () => {
   } finally {
     loading.value = false;
   }
-};
-
-// 跳转到用户协议页面
-const navigateToUserAgreement = () => {
-  uni.navigateTo({
-    url: "/pages/mine/user-agreement/index",
-  });
-};
-
-// 跳转到隐私政策页面
-const navigateToPrivacy = () => {
-  uni.navigateTo({
-    url: "/pages/mine/privacy/index",
-  });
 };
 </script>
 

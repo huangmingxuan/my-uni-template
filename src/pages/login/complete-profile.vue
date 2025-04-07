@@ -56,18 +56,10 @@
           <view class="gender-wrap">
             <text class="input-label">性别</text>
             <view class="gender-options">
-              <view
-                class="gender-option"
-                :class="userForm.gender === 1 ? 'gender-selected' : ''"
-                @click="userForm.gender = 1"
-              >
+              <view class="gender-option" :class="userForm.gender === 1 ? 'gender-selected' : ''" @click="userForm.gender = 1">
                 <text>男</text>
               </view>
-              <view
-                class="gender-option"
-                :class="userForm.gender === 2 ? 'gender-selected' : ''"
-                @click="userForm.gender = 2"
-              >
+              <view class="gender-option" :class="userForm.gender === 2 ? 'gender-selected' : ''" @click="userForm.gender = 2">
                 <text>女</text>
               </view>
             </view>
@@ -76,12 +68,7 @@
 
           <!-- 提交按钮 -->
           <view class="button-wrap">
-            <button
-              class="submit-button"
-              :disabled="submitting"
-              :style="submitting ? 'opacity: 0.7;' : ''"
-              @click="handleSubmit"
-            >
+            <button class="submit-button" :disabled="submitting" :style="submitting ? 'opacity: 0.7;' : ''" @click="handleSubmit">
               提交
             </button>
           </view>
@@ -147,7 +134,7 @@ onLoad((options) => {
   }
 
   // 保存跳转路径
-  if (options.redirect) {
+  if (options?.redirect) {
     redirectPath.value = decodeURIComponent(options.redirect);
   }
 
@@ -203,7 +190,7 @@ const handleGetWechatInfo = () => {
       const { userInfo } = res;
       // 填充表单
       userForm.value.nickname = userInfo.nickName;
-      userForm.value.gender = userInfo.gender;
+      // userForm.value.gender = userInfo.gender;
 
       // 如果有头像，下载并上传头像
       if (userInfo.avatarUrl) {
@@ -254,7 +241,7 @@ const handleSubmit = () => {
   if (submitting.value) return;
 
   // 简单验证
-  if (!userForm.value.nickname.trim()) {
+  if (!userForm.value.nickname?.trim()) {
     toast.error("请填写昵称");
     return;
   }

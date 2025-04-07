@@ -9,13 +9,7 @@
 
     <wd-cell-group custom-style="margin-top:40rpx">
       <wd-cell title="网络测试" icon="wifi" is-link @click="navigateToNetworkTest" />
-      <wd-cell
-        title="清空缓存"
-        icon="delete1"
-        :value="cacheSize"
-        clickable
-        @click="handleClearCache"
-      />
+      <wd-cell title="清空缓存" icon="delete1" :value="cacheSize" clickable @click="handleClearCache" />
     </wd-cell-group>
 
     <wd-cell-group v-if="isLogin" custom-style="margin-top:40rpx">
@@ -74,9 +68,7 @@ const getCacheSize = async () => {
     cacheSize.value = formatSize(res.currentSize);
     // #endif
     // #ifdef H5
-    cacheSize.value = formatSize(
-      Object.keys(localStorage).reduce((size, key) => size + localStorage[key].length, 0)
-    );
+    cacheSize.value = formatSize(Object.keys(localStorage).reduce((size, key) => size + localStorage[key].length, 0));
     // #endif
     if (!cacheSize.value) {
       cacheSize.value = "0B";
